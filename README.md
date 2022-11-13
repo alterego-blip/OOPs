@@ -12,7 +12,7 @@ These programs can be found in the "beforeOOP" folder.
 4. Reverse an Integer
 
 ### 4 / 11 / 2022 (Friday) 
-These programs can be found in the introToOOP forlder.
+These programs can be found in the "introToOOP" forlder.
 
 1. Item description
 2. Calculator
