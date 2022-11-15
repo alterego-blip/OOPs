@@ -1,3 +1,5 @@
+// A program to print the prime numbers in the fibonacci sequence.
+
 #include <iostream>
 using namespace std;
 
