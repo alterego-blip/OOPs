@@ -4,7 +4,7 @@ using namespace std;
 
 class bank {
     char firstName[20], lastName[20], accountType[10];
-    int accountNumber, balance, minBalance = 3000, accountExists = 0;
+    float accountNumber, balance, minBalance = 3000, accountExists = 0;
     
     public:
         void assign();
@@ -25,7 +25,7 @@ void bank::assign() {
 }
 
 void bank::deposit() {
-    int deposit;
+    float deposit;
     while(!accountExists) {
         cout << "Enter the minimum balance amount of Rs." << minBalance << " to initialise the account.\n";
         cout << "Amount to deposit in Rs : ";
@@ -45,6 +45,24 @@ void bank::deposit() {
     cin >> deposit;
     if (deposit > 0) balance += deposit;
     else cout << "Invalid amount.\n Try again.\n\n";
+}
+
+void bank::withdraw() {
+    float withdraw;
+    cout << "Enter an amount to withdraw : ";
+    cin >> withdraw;
+    if ((balance - withdraw) < minBalance) {
+        cout << "The amount can't be withdrawn.\n";
+        cout << "A minimum balance of Rs." << minBalance << " is required to maintain the account.\n";
+        cout << "Please try again.\n\n";
+    } else balance -= withdraw;
+}
+
+void bank::display() {
+    cout << "The account details are as follows.\n";
+    cout << "Account holder name : " << firstName << " " << lastName << endl;
+    cout << "Account number : " << accountNumber << endl;
+    cout << "Account balance : " << balance << "\n\n";
 }
 
 int main() {
