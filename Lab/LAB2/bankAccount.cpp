@@ -31,12 +31,13 @@ void bank::deposit() {
         cout << "Amount to deposit in Rs : ";
         cin >> deposit;
         if (deposit < minBalance) {
-             cout << "The amount requested to be deposited is lower than the minimum balance.\n";
+             cout << "\nThe amount requested to be deposited is lower than the minimum balance.\n";
              cout << "Please try again.\n\n";
         } else {
             balance = 0;
             balance += deposit;
             accountExists = 1; // The account has been created.
+            cout << "The account has been successfully created.\n\n";
             return; // To skip the rest of this function body.
         }
     }
@@ -51,6 +52,7 @@ void bank::withdraw() {
     float withdraw;
     cout << "Enter an amount to withdraw : ";
     cin >> withdraw;
+    cout << endl;
     if ((balance - withdraw) < minBalance) {
         cout << "The amount can't be withdrawn.\n";
         cout << "A minimum balance of Rs." << minBalance << " is required to maintain the account.\n";
@@ -71,5 +73,30 @@ int main() {
     cout << "Welcome to the bank account application.\n";
     cout << "Do you wish to create a new bank account? Y/N : ";
     cin >> create;
-    if (create == 'Y') b.assign(); 
+    if (create == 'Y') b.assign();
+    else if (create == 'N') return 0;
+    else {
+        cout << "Invalid input.\n";
+        return 0;
+    }
+
+    cout << "Do you wish to continue using the app ? Y/N : ";
+    cin >> create;
+
+    if (create == 'Y') {
+        int op = 1;
+        while(op) {
+            cout << "Type the numbers to perform the specific operations.\n";
+            cout << "1 Deposit\n" << "2 Withdraw\n" << "3 Display\n" << "0 Exit\n";
+            cout << "Enter an option : ";
+            cin >> op;
+            cout << "\n";
+
+            if (op == 1) b.deposit();
+            else if (op == 2) b.withdraw();
+            else if (op == 3) b.display();
+            else if (op == 0);
+            else cout << "Invalid option.\nTry again.\n\n";
+        }
+    } else return 0;
 }
